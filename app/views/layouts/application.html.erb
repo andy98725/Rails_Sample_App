@@ -12,9 +12,11 @@
 
   <body>
     <%= render 'shared/header' %>
+      <%= render 'shared/flash_info' %>
     <div class="container">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
