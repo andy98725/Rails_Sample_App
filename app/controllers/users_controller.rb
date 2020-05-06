@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-      flash[:success] = "Welcome to Sample Page, " + @user.name + "!!"
   end
 
   def new
@@ -14,6 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       # Render success
       flash[:success] = "Welcome to Sample Page, " + @user.name + "!"
+      log_in(@user)
       redirect_to @user
     else
       render 'new'
