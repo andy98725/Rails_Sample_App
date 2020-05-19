@@ -100,4 +100,8 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 71
     assert_not @user.valid?
   end
+
+  test "Authenticate should fail with no cookies" do
+    assert_not @user.authenticated?('')
+  end
 end
